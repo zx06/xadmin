@@ -20,5 +20,5 @@ func useApiRouter(e *echo.Echo, prefix string) {
 	r := e.Group(prefix)
 	// swagger
 	r.GET("/docs/*", echoSwagger.WrapHandler)
-	r.GET("/hello", api.Hello)
+	r.GET("/hello", api.HelloHandler)
 }
