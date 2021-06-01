@@ -22,4 +22,6 @@ ARG PORT
 ARG DATABASE_URL
 ARG REDIS_URL
 
+RUN ls -al
+
 ENTRYPOINT ["/project/app"]
