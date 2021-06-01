@@ -25,6 +25,8 @@
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
 		"golang.Go",
+		"dsznajder.es7-react-js-snippets",
+		"ecmel.vscode-html-css"
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
