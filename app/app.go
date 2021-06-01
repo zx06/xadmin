@@ -1,0 +1,49 @@
+package app
+
+import (
+	"context"
+	"xadmin/router"
+	"net/http"
+	"os"
+	"os/signal"
+	"syscall"
+	"time"
+
+	"github.com/labstack/echo-contrib/prometheus"
+	"github.com/labstack/echo/v4"
+	"github.com/labstack/echo/v4/middleware"
+)
+
+func RunServer() {
+	// http server
+	e := echo.New()
+
+	// middleware
+	e.Use(middleware.AddTrailingSlash())
+	e.Use(middleware.Logger())
+	e.Use(middleware.RequestID())
+	p := prometheus.NewPrometheus("xadmin", nil)
+	p.Use(e)
+
+	// router
+	router.UseRouter(e)
+
+	go func() {
+		if err := e.Start(":1234"); err != nil && err != http.ErrServerClosed {
+
+			e.Logger.Fatal("shutting down the server")
+		}
+	}()
+	quit := make(chan os.Signal, 1)
+	signal.Notify(quit,
+		syscall.SIGINT,
+		syscall.SIGTERM,
+		syscall.SIGQUIT,
+	)
+	<-quit
+	ctx, cancel := context.WithTimeout(context.Background(), 60*time.Second)
+	defer cancel()
+	if err := e.Shutdown(ctx); err != nil {
+		e.Logger.Fatal(err)
+	}
+}

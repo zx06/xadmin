@@ -1,11 +1,11 @@
-module gin
+module xadmin
 
 go 1.16
 
 require (
-	github.com/gin-contrib/expvar v0.0.1
-	github.com/gin-contrib/requestid v0.0.1
-	github.com/gin-contrib/zap v0.0.1
-	github.com/gin-gonic/gin v1.7.2
-	go.uber.org/zap v1.17.0
+	github.com/golang/protobuf v1.3.3 // indirect
+	github.com/labstack/echo-contrib v0.9.0
+	github.com/labstack/echo/v4 v4.3.0
+	github.com/stretchr/testify v1.7.0 // indirect
+	gopkg.in/yaml.v3 v3.0.0-20210107192922-496545a6307b // indirect
 )
