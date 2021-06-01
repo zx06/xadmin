@@ -9,5 +9,8 @@ RUN go build -ldflags "-X main.VERSION=$VERSION_TAG" -o /go/bin/app /go_build/ma
 FROM ubuntu:20.04
 
 COPY --from=goBuilder /go/bin/app /project/app
-ENV PORT=1234
+ARG PORT
+ARG DATABASE_URL
+ARG REDIS_URL
+
 ENTRYPOINT ["/project/app"]

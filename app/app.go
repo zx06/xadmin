@@ -30,12 +30,13 @@ func RunServer() {
 	router.UseRouter(e)
 
 	go func() {
-		var addr = fmt.Sprintf(":%s",os.Getenv("PORT"))
+		var addr = fmt.Sprintf(":%d", Config().Port)
 		if err := e.Start(addr); err != nil && err != http.ErrServerClosed {
 
 			e.Logger.Fatal("shutting down the server")
 		}
 	}()
+	
 	quit := make(chan os.Signal, 1)
 	signal.Notify(quit,
 		syscall.SIGINT,
