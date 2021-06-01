@@ -5,6 +5,7 @@ import (
 
 	"github.com/labstack/echo/v4"
 )
+
 // UseRouter 注册路由
 func UseRouter(e *echo.Echo) {
 	// 前端静态文件
@@ -12,11 +13,14 @@ func UseRouter(e *echo.Echo) {
 	e.Static("/", "public/")
 	api := e.Group("/api")
 	api.GET("/", func(c echo.Context) error {
-		c.JSONPretty(http.StatusOK, echo.Map{
+		err := c.JSONPretty(http.StatusOK, echo.Map{
 			"real_ip":  c.RealIP(),
 			"request":  c.Request().Header,
 			"response": c.Response().Header(),
 		}, "    ")
+		if err != nil {
+			return err
+		}
 		return nil
 	})
 }
