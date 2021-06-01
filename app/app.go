@@ -2,12 +2,13 @@ package app
 
 import (
 	"context"
-	"xadmin/router"
+	"fmt"
 	"net/http"
 	"os"
 	"os/signal"
 	"syscall"
 	"time"
+	"xadmin/router"
 
 	"github.com/labstack/echo-contrib/prometheus"
 	"github.com/labstack/echo/v4"
@@ -29,7 +30,8 @@ func RunServer() {
 	router.UseRouter(e)
 
 	go func() {
-		if err := e.Start(":1234"); err != nil && err != http.ErrServerClosed {
+		var addr = fmt.Sprintf(":%s",os.Getenv("PORT"))
+		if err := e.Start(addr); err != nil && err != http.ErrServerClosed {
 
 			e.Logger.Fatal("shutting down the server")
 		}

@@ -7,8 +7,7 @@ RUN go build -ldflags "-X main.VERSION=$VERSION_TAG" -o /go/bin/app /go_build/ma
 
 
 FROM ubuntu:20.04
+
 COPY --from=goBuilder /go/bin/app /project/app
-
-EXPOSE 1234
-
+ENV PORT=1234
 ENTRYPOINT ["/project/app"]
