@@ -13,12 +13,13 @@ func UseRouter(e *echo.Echo) {
 	e.File("/", "public/index.html")
 	e.Static("/", "public/")
 	// api
-	useApiRouter(e, "/api")
+	apiGroup := e.Group("/api")
+	useApiRouter(apiGroup)
 }
 
-func useApiRouter(e *echo.Echo, prefix string) {
-	r := e.Group(prefix)
+func useApiRouter(g *echo.Group) {
+
 	// swagger
-	r.GET("/docs/*", echoSwagger.WrapHandler)
-	r.GET("/hello", api.HelloHandler)
+	g.GET("/docs/*", echoSwagger.WrapHandler)
+	g.GET("/hello", api.HelloHandler)
 }

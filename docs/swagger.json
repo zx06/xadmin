@@ -18,9 +18,9 @@
     "host": "petstore.swagger.io",
     "basePath": "/",
     "paths": {
-        "/api/tasks": {
+        "/api/hello": {
             "get": {
-                "description": "任务列表",
+                "description": "Hello",
                 "consumes": [
                     "application/json"
                 ],
@@ -28,7 +28,7 @@
                     "application/json"
                 ],
                 "tags": [
-                    "筛分聚类"
+                    "Hello"
                 ],
                 "parameters": [
                     {

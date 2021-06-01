@@ -33,9 +33,9 @@ var doc = `{
     "host": "{{.Host}}",
     "basePath": "{{.BasePath}}",
     "paths": {
-        "/api/tasks": {
+        "/api/hello": {
             "get": {
-                "description": "任务列表",
+                "description": "Hello",
                 "consumes": [
                     "application/json"
                 ],
@@ -43,7 +43,7 @@ var doc = `{
                     "application/json"
                 ],
                 "tags": [
-                    "筛分聚类"
+                    "Hello"
                 ],
                 "parameters": [
                     {

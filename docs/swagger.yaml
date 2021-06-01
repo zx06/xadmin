@@ -13,11 +13,11 @@ info:
   title: Swagger Example API
   version: "1.0"
 paths:
-  /api/tasks:
+  /api/hello:
     get:
       consumes:
       - application/json
-      description: 任务列表
+      description: Hello
       parameters:
       - description: 可选,追踪请求,不传该值则由服务端自行生成
         in: header
@@ -26,5 +26,5 @@ paths:
       produces:
       - application/json
       tags:
-      - 筛分聚类
+      - Hello
 swagger: "2.0"
