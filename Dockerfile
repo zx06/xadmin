@@ -10,7 +10,7 @@ FROM node:15 as jsBuilder
 
 WORKDIR /js_build
 COPY fe /js_build
-RUN yarn build
+RUN npm install && yarn build
 
 
 
