@@ -13,7 +13,9 @@ var (
 )
 
 type config struct {
-	Port int `env:"PORT" envDefault:"3000"`
+	Port        int    `env:"PORT" envDefault:"3000"`
+	DatabaseURL string `env:"DATABASE_URL"`
+	RedisURL    string `env:"REDIS_URL"`
 }
 
 // Config 单例,所有设置都从这里取
