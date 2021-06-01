@@ -20,7 +20,7 @@ func RunServer() {
 	e := echo.New()
 
 	// middleware
-	e.Use(middleware.AddTrailingSlash())
+	// e.Use(middleware.AddTrailingSlash())
 	e.Use(middleware.Logger())
 	e.Use(middleware.RequestID())
 	p := prometheus.NewPrometheus("xadmin", nil)
