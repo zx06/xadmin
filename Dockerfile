@@ -15,6 +15,7 @@ RUN npm install && yarn build
 
 
 FROM ubuntu:20.04
+ENV TZ=Asia/Shanghai
 
 WORKDIR /project
 
