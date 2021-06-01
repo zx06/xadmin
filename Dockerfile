@@ -16,6 +16,8 @@ RUN npm install && yarn build
 
 FROM ubuntu:20.04
 
+WORKDIR /project
+
 COPY --from=goBuilder /go/bin/app /project/app
 COPY --from=jsBuilder /js_build/build /project/public
 ARG PORT
