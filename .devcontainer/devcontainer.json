@@ -29,7 +29,8 @@
 		"ecmel.vscode-html-css",
 		"codezombiech.gitignore",
 		"michelemelluso.gitignore",
-		"piotrpalarz.vscode-gitignore-generator"
+		"piotrpalarz.vscode-gitignore-generator",
+		"yzhang.markdown-all-in-one"
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.

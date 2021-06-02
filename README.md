@@ -1,27 +1,18 @@
----
-title: Gin
-description: A Gin server
-tags:
-  - gin
-  - go
----
+# xadmin
 
-# Gin Example
+go语言练手项目
 
-This example starts an [Gin](https://gin-gonic.com/) server.
+## 目标
 
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new?template=https%3A%2F%2Fgithub.com%2Frailwayapp%2Fexamples%2Ftree%2Fmaster%2Fexamples%2Fgin)
+- 数据库curd
+- 前端dashboard
 
-## ✨ Features
+- 后台任务
+  - 定时任务
+  - 分布式任务
 
-- Gin
-- Go
+## 需要用的技术
 
-## 💁‍♀️ How to use
-
-- Connect to your Railway project `railway link`
-- Start the development server `railway run go run main.go`
-
-## 📝 Notes
-
-The server started simply returns a `message: Hello world!` payload in JSON. The server code is located in the `main.go` file.
+1. web框架 [echo](https://github.com/labstack/echo)
+2. orm [gorm](https://github.com/go-gorm/gorm/)
+3. 分布式任务 [asynq](https://github.com/hibiken/asynq)
