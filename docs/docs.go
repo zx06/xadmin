@@ -70,7 +70,7 @@ type swaggerInfo struct {
 // SwaggerInfo holds exported Swagger Info so clients can modify it
 var SwaggerInfo = swaggerInfo{
 	Version:     "1.0",
-	Host:        "petstore.swagger.io",
+	Host:        "",
 	BasePath:    "/",
 	Schemes:     []string{},
 	Title:       "Swagger Example API",

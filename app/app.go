@@ -8,7 +8,6 @@ import (
 	"os/signal"
 	"syscall"
 	"time"
-	"xadmin/router"
 
 	"github.com/labstack/echo-contrib/prometheus"
 	"github.com/labstack/echo/v4"
@@ -27,7 +26,7 @@ func RunServer() {
 	p.Use(e)
 
 	// router
-	router.UseRouter(e)
+	UseRouter(e)
 
 	go func() {
 		var addr = fmt.Sprintf(":%d", Config().Port)
@@ -36,7 +35,7 @@ func RunServer() {
 			e.Logger.Fatal("shutting down the server")
 		}
 	}()
-	
+
 	quit := make(chan os.Signal, 1)
 	signal.Notify(quit,
 		syscall.SIGINT,
