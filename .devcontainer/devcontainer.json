@@ -26,7 +26,10 @@
 	"extensions": [
 		"golang.Go",
 		"dsznajder.es7-react-js-snippets",
-		"ecmel.vscode-html-css"
+		"ecmel.vscode-html-css",
+		"codezombiech.gitignore",
+		"michelemelluso.gitignore",
+		"piotrpalarz.vscode-gitignore-generator"
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
