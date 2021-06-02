@@ -4,6 +4,7 @@
 *.dll
 *.so
 *.dylib
+__debug_bin
 
 # Test binary, built with `go test -c`
 *.test
@@ -21,4 +22,3 @@ docs/swagger.yaml
 
 # 需要包含的文件
 !.gitkeep
-
