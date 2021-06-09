@@ -42,7 +42,7 @@ func (u *UserLoginService) Login(ctx context.Context, req request.UserLoginReque
 			ExpiresAt: time.Now().Add(time.Hour * 24 * 7).Unix(),
 		},
 	})
-	t, err := token.SignedString(config.Config().SigningKey)
+	t, err := token.SignedString([]byte(config.Config().SigningKey))
 	if err != nil {
 		return serializer.Err(serializer.CodeEncryptError, "token 生成失败", nil)
 	}
