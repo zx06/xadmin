@@ -14,7 +14,12 @@ jobs:
     steps:
       - name: Checkout Source
         uses: actions/checkout@v2
-        
+
+      - name: Set up Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: 1.16
+
       - name: Pre Build
         run: go get github.com/swaggo/swag/cmd/swag && swag init
 
