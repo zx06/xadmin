@@ -26,7 +26,7 @@ func GORMFactory(dsn string, gormConf *gorm.Config) *gorm.DB {
 
 func DB() *gorm.DB {
 	dbOnce.Do(func() {
-		db = GORMFactory(cfg.DatabaseURL, &gorm.Config{})
+		db = GORMFactory(Config().DatabaseURL, &gorm.Config{})
 	})
 	return db
 }
