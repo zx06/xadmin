@@ -24,33 +24,34 @@ jobs:
         uses: golangci/golangci-lint-action@v2
         with:
           version: v1.29
-test:
-  runs-on: ubuntu-latest
-  env:
-    GO111MODULE: on
-    DATABASE_URL: postgresql://test:test@localhost:5432/test
-  steps:
-    - name: Checkout Source
-      uses: actions/checkout@v2
-
-    - name: Setup Database
-      uses: huaxk/postgis-action@v1
-      with: 
-        postgresql version: '13'
-        postgresql password: 'test'
-        postgresql user: 'test'
-        postgresql db: 'test'
-
-    - name: Set up Go
-      uses: actions/setup-go@v2
-      with:
-        go-version: 1.16
+  test:
+    runs-on: ubuntu-latest
+    env:
+      GO111MODULE: on
+      DATABASE_URL: postgresql://test:test@localhost:5432/test
+    steps:
+      - name: Checkout Source
+        uses: actions/checkout@v2
     
-    - name: Pre Build
-      run: go get github.com/swaggo/swag/cmd/swag && swag init
-
-    - name: Build
-      run: go build -v ./...
-
-    - name: Test
-      run: go test -v ./...
+      - name: Setup Database
+        uses: huaxk/postgis-action@v1
+        with: 
+          postgresql version: '13'
+          postgresql password: 'test'
+          postgresql user: 'test'
+          postgresql db: 'test'
+        
+      - name: Set up Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: 1.16
+        
+      - name: Pre Build
+        run: go get github.com/swaggo/swag/cmd/swag && swag init
+        
+      - name: Build
+        run: go build -v ./...
+        
+      - name: Test
+        run: go test -v ./...
+        
