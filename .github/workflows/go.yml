@@ -14,6 +14,9 @@ jobs:
     steps:
       - name: Checkout Source
         uses: actions/checkout@v2
+        
+      - name: Pre Build
+        run: go get github.com/swaggo/swag/cmd/swag && swag init
 
       - name: Run Gosec Security Scanner
         uses: securego/gosec@master
