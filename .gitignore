@@ -15,10 +15,5 @@ __debug_bin
 # Dependency directories (remove the comment below to include it)
 vendor/
 
-# 生产的文件
-docs/docs.go
-docs/swagger.json
-docs/swagger.yaml
-
 # 需要包含的文件
 !.gitkeep
