@@ -16,6 +16,7 @@ type conf struct {
 	Port        int    `env:"PORT" envDefault:"3000"`
 	DatabaseURL string `env:"DATABASE_URL"`
 	RedisURL    string `env:"REDIS_URL"`
+	SigningKey  []byte `env:"SIGNING_KEY" envDefault:"secret"`
 }
 
 // Config 单例,所有设置都从这里取
