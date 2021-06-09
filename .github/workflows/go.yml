@@ -32,15 +32,15 @@ jobs:
     steps:
       - name: Checkout Source
         uses: actions/checkout@v2
-    
+
       - name: Setup Database
         uses: huaxk/postgis-action@v1
         with: 
-          postgresql version: '13'
+          postgresql version: '11'
           postgresql password: 'test'
           postgresql user: 'test'
           postgresql db: 'test'
-        
+
       - name: Set up Go
         uses: actions/setup-go@v2
         with:
@@ -48,10 +48,9 @@ jobs:
         
       - name: Pre Build
         run: go get github.com/swaggo/swag/cmd/swag && swag init
-        
+
       - name: Build
         run: go build -v ./...
-        
+
       - name: Test
         run: go test -v ./...
-        
