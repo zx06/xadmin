@@ -14,7 +14,6 @@ import (
 	"github.com/labstack/echo/v4/middleware"
 
 	"xadmin/app/config"
-	"xadmin/app/service"
 )
 
 func RunServer() {
@@ -25,11 +24,6 @@ func RunServer() {
 	// e.Use(middleware.AddTrailingSlash())
 	e.Use(middleware.Logger())
 	e.Use(middleware.RequestID())
-	// jwt
-	e.Use(middleware.JWTWithConfig(middleware.JWTConfig{
-		Claims:     &service.JwtClaims{},
-		SigningKey: config.Config().SigningKey,
-	}))
 	p := prometheus.NewPrometheus("xadmin", nil)
 	p.Use(e)
 

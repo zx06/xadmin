@@ -2,7 +2,10 @@ package app
 
 import (
 	"xadmin/app/api"
+	"xadmin/app/config"
+	"xadmin/app/service"
 
+	"github.com/labstack/echo/v4/middleware"
 	"github.com/labstack/echo/v4"
 	"github.com/swaggo/echo-swagger"
 )
@@ -18,7 +21,11 @@ func UseRouter(e *echo.Echo) {
 }
 
 func useApiRouter(g *echo.Group) {
-
+	// jwt
+	g.Use(middleware.JWTWithConfig(middleware.JWTConfig{
+		Claims:     &service.JwtClaims{},
+		SigningKey: config.Config().SigningKey,
+	}))
 	// swagger
 	g.GET("/docs/*", echoSwagger.WrapHandler)
 	g.GET("/hello", api.HelloHandler)
