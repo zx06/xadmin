@@ -63,9 +63,9 @@ func TestUserLoginService_Login(t *testing.T) {
 				},
 			},
 			want: serializer.Response{
-				Code:  0,
+				Code:  40001,
 				Data:  nil,
-				Msg:   "",
+				Msg:   "账号或密码错误",
 				Error: "",
 			},
 		},
