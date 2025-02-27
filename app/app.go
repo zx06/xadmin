@@ -12,6 +12,8 @@ import (
 	"github.com/labstack/echo-contrib/prometheus"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
+
+	"xadmin/app/config"
 )
 
 func RunServer() {
@@ -29,7 +31,7 @@ func RunServer() {
 	UseRouter(e)
 
 	go func() {
-		var addr = fmt.Sprintf(":%d", Config().Port)
+		var addr = fmt.Sprintf(":%d", config.Config().Port)
 		if err := e.Start(addr); err != nil && err != http.ErrServerClosed {
 
 			e.Logger.Fatal("shutting down the server")
